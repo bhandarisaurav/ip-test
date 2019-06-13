@@ -29,7 +29,7 @@ file_put_contents('ip.json', $jsonData);
 <br>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 jumbotron" style="max-width: 99%;">
+        <div class="col-md-6 jumbotron">
             <h3 class="header">Your IP Address is: <span id="list" style="color:#ffffff"><?php echo $data ?></span></h3>
             <hr>
             <div>
@@ -43,8 +43,8 @@ file_put_contents('ip.json', $jsonData);
                 ?>
             </div>
         </div>
-<!--        <div style="max-width: 1%;"></div>-->
-        <div class="col-md-6 jumbotron" style="max-width: 99%;">
+        <div style="width: 10px;"></div>
+        <div class="col-md-6 jumbotron">
             <h3 class="header">Your Public IP Address is: <span id="list"
                                                                 style="color:#ffffff"><?php echo $data ?></span></h3>
             <hr>
