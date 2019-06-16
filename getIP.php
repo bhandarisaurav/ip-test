@@ -28,9 +28,10 @@ file_put_contents('ip_public.json', $ip_public_json_final);
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" href="assets/fav.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <title>IP Test</title>
 </head>
 <body>
@@ -73,7 +74,7 @@ file_put_contents('ip_public.json', $ip_public_json_final);
                     <br>
                     <?php
                     echo '<ul class="custom-list star">';
-                    foreach ($ip_private_array as $p) {
+                    foreach ($ip_public_array as $p) {
                         echo '<li>' . $p . '</li>';
                     }
                     echo '</ul>';
