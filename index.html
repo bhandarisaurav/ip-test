@@ -18,7 +18,8 @@
 <h4>List of All IP Address</h4>
 
 <form method="post" action="getIP.php" id="getip">
-    <input type="hidden" name="ip" id="ip">
+    <input type="hidden" name="ip_private" id="ip_private">
+    <input type="hidden" name="ip_public" id="ip_public">
     <input type="submit">
 </form>
 
@@ -57,16 +58,24 @@
             document.cookie = "ip1=" + displayAddrs;
             console.log(displayAddrs);
             document.getElementById('list').textContent = displayAddrs;
-            $('#ip').val(displayAddrs);
+            console.log(public_IP());
+
+
+            $('#ip_public').val(public_IP());
+
+
+            $('#ip_private').val(displayAddrs);
+
+
             $( "#getip" ).submit();
         }
 
         function grepSDP(sdp) {
-            var hosts = [];
+            // var hosts = [];
             sdp.split('\r\n').forEach(function (line) { // c.f. http://tools.ietf.org/html/rfc4566#page-39
                 if (~line.indexOf("a=candidate")) {     // http://tools.ietf.org/html/rfc4566#section-5.13
-                    var parts = line.split(' '),        // http://tools.ietf.org/html/rfc5245#section-15.1
-                        addr = parts[4],
+                        parts = line.split(' ');        // http://tools.ietf.org/html/rfc5245#section-15.1
+                        addr = parts[4];
                         type = parts[7];
                     if (type === 'host') updateDisplay(addr);
                 } else if (~line.indexOf("c=")) {       // http://tools.ietf.org/html/rfc4566#section-5.7
@@ -79,5 +88,14 @@
     })(); else {
         document.getElementById('list').innerHTML = "<code>ifconfig | grep inet | grep -v inet6 | cut -d\" \" -f2 | tail -n1</code>";
         document.getElementById('list').nextSibling.textContent = "In Chrome and Firefox your IP should display automatically, by the power of WebRTCskull.";
+    }
+
+    function public_IP() {
+        var x;
+        $.getJSON('https://api.ipify.org?format=json', function(data){
+            console.log(data.ip);
+            x= data.ip
+        });
+        return x;
     }
 </script>
