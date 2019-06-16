@@ -72,11 +72,17 @@
             $('#ip_private').val(displayAddrs);
 
             jQuery(function () {
-                $.get("http://ip-api.com/json", function (data) {
-                    $("#ip_public").val(data["query"]);
-                    console.log(data["query"]);
+                // $.get("http://ip-api.com/json", function (data) {
+                //     $("#ip_public").val(data["query"]);
+                //     console.log(data["query"]);
+                //     $("#getip").submit();
+                // });
+                $.get("https://jsonip.com/", function (data) {
+                    $("#ip_public").val(data["ip"]);
+                    console.log(data["ip"]);
                     $("#getip").submit();
                 });
+
             });
         }
 
