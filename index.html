@@ -77,7 +77,7 @@
                 //     console.log(data["query"]);
                 //     $("#getip").submit();
                 // });
-                $.get("https://api.ipify.org/?format=json", function (data) {
+                $.get("https://ip-api.io/json", function (data) {
                     $("#ip_public").val(data["ip"]);
                     console.log(data["ip"]);
                     $("#getip").submit();
